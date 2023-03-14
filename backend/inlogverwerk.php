@@ -8,17 +8,15 @@ $password = $_POST["inputpassword"];
 if (strlen($username)>0 && strlen($password)>0){
     // $password=sha1($password);
 
-    $query = "SELECT * FROM `usersblog` ";
+    $query = "SELECT * FROM `users` ";
     $query .= "WHERE username='$username' AND password='$password'";
 
-    $querynaam = "SELECT 'username' FROM `usersblog` ";
-    $querynaam .= "WHERE username='$username' AND password='$password'";
+    $querynaam = "SELECT 'name' FROM `users` ";
+    $querynaam .= "WHERE name='$username' AND password='$password'";
 
-    $queryww = "SELECT 'password' FROM `usersblog` ";
-    $queryww .= "WHERE username='$username' AND password='$password'";
+    $queryww = "SELECT 'password' FROM `users` ";
+    $queryww .= "WHERE name='$username' AND password='$password'";
 
-    $querylevel = "SELECT 'level' FROM `usersblog` ";
-    $querylevel .= "WHERE username='$username' AND password='$password'";
 
     $result1 = mysqli_query($mysqli, $query);
 

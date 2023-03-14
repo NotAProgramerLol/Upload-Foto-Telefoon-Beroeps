@@ -6,7 +6,7 @@ session_start();
 
 if (isset($_SESSION['username'])){
     if ($_SESSION['username'] == ''){
-        header('Location: ../backend/login.php');
+        header('Location: login.php');
     }
     // else {
     //     header('Location: inlog.php');
