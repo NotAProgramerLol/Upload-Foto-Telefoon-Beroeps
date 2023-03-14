@@ -8,7 +8,7 @@ require 'config.php';
 
 $titel = $_POST['title'];
 $image = $_POST['image'];
-$user =  
+$user = $_POST['user'];
 
 
 
@@ -25,7 +25,7 @@ $filename .= $timestamp. "." . $ext;
 $dir = "afbeelding/";
 
 
-$query = "INSERT INTO `postsblog`(`name`, `src`, `user`) VALUES ('".$titel."','".$filename."','".$content."')";
+$query = "INSERT INTO `items`(`name`, `src`, `user`) VALUES ('".$titel."','".$filename."','".$user."')";
 
 // echo $query;
 
@@ -61,4 +61,4 @@ foreach ($a as $item )
 {
   echo "<img src='afbeelding/".$item."'><br/>";
 }
-header('Location: ../frontend/browse.php');
+// header('Location: ../frontend/browse.php');

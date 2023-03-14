@@ -10,13 +10,13 @@ require_once '../backend/login_check.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Excursieblog</title>
+    <title>create</title>
 </head>
 <body>
     <img id="logo" src="images/logo.png" alt="">
     <div id="links">
     
-        <a href="index.php">Home</a>
+        <a href="../index.php">Home</a>
         <a href="create.php">Create blog</a>
         <a href="browse.php">Browse blogs</a>
 
@@ -32,6 +32,8 @@ require_once '../backend/login_check.php';
 
             <label for="">Image: </label></br>
             <input type="file" name="image" id="image"></br>
+
+            <input type="hidden" name="user" id="user" value="<?php $_SESSION['username']?>" ></br>
 
             <input type="submit">
         </form>

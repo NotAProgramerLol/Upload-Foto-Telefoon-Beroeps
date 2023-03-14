@@ -24,7 +24,7 @@ if (strlen($username)>0 && strlen($password)>0){
 
     $result3 = mysqli_query($mysqli, $queryww);
 
-    $result4 = mysqli_query($mysqli, $querylevel);
+    
 
     if (mysqli_num_rows($result2) == 1){
         session_start();

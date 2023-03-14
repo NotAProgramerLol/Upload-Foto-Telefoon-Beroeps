@@ -4,6 +4,8 @@ ini_set("display_errors", 1);
 
 session_start();
 
+
+
 if (isset($_SESSION['username'])){
     if ($_SESSION['username'] == ''){
         header('Location: login.php');

@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="frontend/create.php">create</a>
+    <a href="frontend/browse.php">browse</a>
+    <a href="backend/uitlog.php">uitloggen</a>
 </body>
 </html>

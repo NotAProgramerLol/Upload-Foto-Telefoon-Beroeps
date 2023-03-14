@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 $db_hostname = 'localhost';
-$db_username = '88221';
-$db_password = 'AxelRonner';
+$db_username = 'db87957';
+$db_password = 'DB87957@#';
 // database moet nog een 2 bevatten
 $db_database = 'db_87957';
 
