@@ -33,7 +33,7 @@ require_once '../backend/login_check.php';
             <label for="">Image: </label></br>
             <input type="file" name="image" id="image"></br>
 
-            <input type="hidden" name="user" id="user" value="<?php $_SESSION['username']?>" ></br>
+            <input type="hidden" name="user" id="user" value="<?php $_SESSION['id']?>" ></br>
 
             <input type="submit">
         </form>

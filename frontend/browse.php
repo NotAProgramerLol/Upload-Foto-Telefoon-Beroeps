@@ -8,7 +8,7 @@
     <title>Excursieblog</title>
 </head>
 <body>
-    <img id="logo" src="images/logo.png" alt="">
+    <!-- <img id="logo" src="images/logo.png" alt=""> -->
     <div id="links">
     
         <a href="../index.php">Home</a>

@@ -5,6 +5,8 @@ require 'config.php';
 $username = $_POST["inputusername"];
 $password = $_POST["inputpassword"];
 
+
+
 if (strlen($username)>0 && strlen($password)>0){
     // $password=sha1($password);
 
@@ -17,6 +19,9 @@ if (strlen($username)>0 && strlen($password)>0){
     $queryww = "SELECT 'password' FROM `users` ";
     $queryww .= "WHERE name='$username' AND password='$password'";
 
+    $queryid = "SELECT 'id' FROM `users` ";
+    $queryid .= "WHERE name='$username' AND password='$password'";
+
 
     $result1 = mysqli_query($mysqli, $query);
 
@@ -24,11 +29,14 @@ if (strlen($username)>0 && strlen($password)>0){
 
     $result3 = mysqli_query($mysqli, $queryww);
 
+    $result4 = mysqli_query($mysqli, $queryid);
+
     
 
     if (mysqli_num_rows($result2) == 1){
         session_start();
-        $_SESSION['username'] = $username;
+        
+        $_SESSION['id'] = $result4;
         header("Location: ../index.php");
         // echo "<p>Ingelogd ". $username ."!</p>";
 
