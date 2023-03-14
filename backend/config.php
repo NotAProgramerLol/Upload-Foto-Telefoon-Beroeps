@@ -7,7 +7,7 @@ $db_hostname = 'localhost';
 $db_username = '88221';
 $db_password = 'AxelRonner';
 // database moet nog een 2 bevatten
-$db_database = 'db_88221';
+$db_database = 'db_87957';
 
 $mysqli = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
 

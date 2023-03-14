@@ -30,8 +30,6 @@ require_once '../backend/login_check.php';
             <label for="">Title: </label></br>
             <input type="text" name="title" id="title"></br>
 
-            <label for="">Content: </label></br>
-            <input type="text" name="content" id="content"></br>
 
             <label for="">Image: </label></br>
             <input type="file" name="image" id="image"></br>

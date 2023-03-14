@@ -7,8 +7,8 @@ require 'config.php';
 // require_once 'login_check.php';
 
 $titel = $_POST['title'];
-$content = $_POST['content'];
 $image = $_POST['image'];
+$user =  
 
 
 
@@ -25,7 +25,7 @@ $filename .= $timestamp. "." . $ext;
 $dir = "afbeelding/";
 
 
-$query = "INSERT INTO `postsblog`(`titel`, `tekst`, `foto`) VALUES ('".$titel."','".$content."','".$filename."')";
+$query = "INSERT INTO `postsblog`(`name`, `src`, `user`) VALUES ('".$titel."','".$filename."','".$content."')";
 
 // echo $query;
 

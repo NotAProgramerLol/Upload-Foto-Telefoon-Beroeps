@@ -31,7 +31,7 @@ if (strlen($username)>0 && strlen($password)>0){
     if (mysqli_num_rows($result2) == 1){
         session_start();
         $_SESSION['username'] = $username;
-        header("Location: ../frontend/index.php");
+        header("Location: ../index.php");
         // echo "<p>Ingelogd ". $username ."!</p>";
 
     }
