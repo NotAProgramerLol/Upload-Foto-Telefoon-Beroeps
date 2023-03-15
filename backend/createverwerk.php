@@ -9,8 +9,8 @@ require 'config.php';
 $titel = $_POST['title'];
 $image = $_POST['image'];
 $user = $_POST['user'];
-// $group = $_POST[''];
-echo $user;
+$group = $_POST['group'];
+// echo $user;
 
 
 // photo upload > Filezilla
@@ -26,44 +26,44 @@ $filename .= $timestamp. "." . $ext;
 $dir = "afbeelding/";
 
 
-// $query = 
 
 
 
-// $query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('".$titel."','".$filename."',".$user.",". $group .")";
 
-// // echo $query;
+$query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "'," . $user . "," . $group . ")";
 
-// $result = mysqli_query($mysqli, $query);
+// echo $query;
 
-// if ($result){
-//     // echo "Het item is toegevoegd!<br/>";
-//     // header('Location: ../frontend/browse.php');
-// }
-// else{
-//     echo "FOUT bij toevoegen!<br/>";
-//     echo mysqli_error($mysqli);
-// }
+$result = mysqli_query($mysqli, $query);
+
+if ($result){
+    // echo "Het item is toegevoegd!<br/>";
+    // header('Location: ../frontend/browse.php');
+}
+else{
+    echo "FOUT bij toevoegen!<br/>";
+    echo mysqli_error($mysqli);
+}
 
 
-// if (move_uploaded_file($temp, $directory. "/" .$filename))
-// {
-//     // echo "$filename uploaded <br/>";
-// }
-// else {
-//     echo "FOUT! bij het uploaden $filename";
-// }
-// // Sort in ascending order - this is default
-// $a = scandir($dir);
-// // echo "<pre>";
-// // print_r($a);
-// // echo "</pre>";
-// // echo ($a)[3];
-// unset($a[0]);
-// unset($a[1]);
+if (move_uploaded_file($temp, $directory. "/" .$filename))
+{
+    // echo "$filename uploaded <br/>";
+}
+else {
+    echo "FOUT! bij het uploaden $filename";
+}
+// Sort in ascending order - this is default
+$a = scandir($dir);
+// echo "<pre>";
+// print_r($a);
+// echo "</pre>";
+// echo ($a)[3];
+unset($a[0]);
+unset($a[1]);
 
-// foreach ($a as $item )
-// {
-//   echo "<img src='afbeelding/".$item."'><br/>";
-// }
-// // header('Location: ../frontend/browse.php');
+foreach ($a as $item )
+{
+  echo "<img src='afbeelding/".$item."'><br/>";
+}
+// header('Location: ../frontend/browse.php');

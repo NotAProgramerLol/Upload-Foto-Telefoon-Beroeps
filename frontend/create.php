@@ -27,13 +27,15 @@ require_once '../backend/login_check.php';
     <hr />
     <div id="body-container">
     <form action="../backend/createverwerk.php" method="post" enctype="multipart/form-data">
-            <label for="">Title: </label></br>
+            <label for="image">Title: </label></br>
             <input type="text" name="title" id="title"></br>
 
-            <label for="">Image: </label></br>
+            <label for="image">Image: </label></br>
             <input type="file" name="image" id="image"></br>
 
             <input type="hidden" name="user" id="user" value="<?php $_SESSION['id']?>" ></br>
+
+            <input type="hidden" name="group" id="group" value="<?php $_SESSION['id']?>" ></br>
 
             <input type="submit">
         </form>
