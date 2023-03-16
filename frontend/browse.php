@@ -8,10 +8,10 @@
     <title>Excursieblog</title>
 </head>
 <body>
-    <!-- <img id="logo" src="images/logo.png" alt=""> -->
+    <img id="logo" src="images/logo.png" alt="">
     <div id="links">
     
-        <a href="../index.php">Home</a>
+        <a href="index.php">Home</a>
         <a href="create.php">Create blog</a>
         <a href="browse.php">Browse blogs</a>
 
@@ -31,7 +31,7 @@
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
 
-        $query = "SELECT * FROM items";
+        $query = "SELECT * FROM postsblog";
 
     $result = mysqli_query($mysqli, $query);
 
