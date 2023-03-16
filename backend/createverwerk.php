@@ -7,9 +7,10 @@ require 'config.php';
 // require_once 'login_check.php';
 
 $titel = $_POST['title'];
-$content = $_POST['content'];
 $image = $_POST['image'];
-
+$user = $_POST['user'];
+$group = $_POST['group'];
+// echo $user;
 
 
 // photo upload > Filezilla
@@ -25,7 +26,11 @@ $filename .= $timestamp. "." . $ext;
 $dir = "afbeelding/";
 
 
-$query = "INSERT INTO `postsblog`(`titel`, `tekst`, `foto`) VALUES ('".$titel."','".$content."','".$filename."')";
+
+
+
+
+$query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "'," . $user . "," . $group . ")";
 
 // echo $query;
 
@@ -61,4 +66,4 @@ foreach ($a as $item )
 {
   echo "<img src='afbeelding/".$item."'><br/>";
 }
-header('Location: ../frontend/browse.php');
+// header('Location: ../frontend/browse.php');
