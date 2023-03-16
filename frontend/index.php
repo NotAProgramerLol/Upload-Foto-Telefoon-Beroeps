@@ -1,8 +1,3 @@
-<?php 
-
-require_once '../backend/login_check.php';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,20 +21,12 @@ require_once '../backend/login_check.php';
     </div>
     <hr />
     <div id="body-container">
-    <form action="../backend/createverwerk.php" method="post" enctype="multipart/form-data">
-            <label for="">Title: </label></br>
-            <input type="text" name="title" id="title"></br>
-
-            <label for="">Content: </label></br>
-            <input type="text" name="content" id="content"></br>
-
-            <label for="">Image: </label></br>
-            <input type="file" name="image" id="image"></br>
-
-            <input type="submit">
-        </form>
-
-
+        <div class="indexwrapper">
+        <h1>Welkom bij de Excursieblog van het GLR!</h1>
+        <a href="browse.php">Blogs bekijken</a>
+        <a href="create.php">Blog Toevoegen</a>
+        </div>
+        <img id="indexbg" src="images/indexbackground.png">
     </div>
     <footer>
 
