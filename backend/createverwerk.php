@@ -7,7 +7,7 @@ require 'config.php';
 // require_once 'login_check.php';
 
 $titel = $_POST['title'];
-$image = $_POST['image'];
+$image = $_FILES['image'];
 $user = $_POST['user'];
 $group = $_POST['group'];
 // echo $user;
@@ -30,7 +30,8 @@ $dir = "afbeelding/";
 
 
 
-$query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "'," . $user . "," . $group . ")";
+$query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "','" . $user . "','" . $group . "')";
+
 
 // echo $query;
 
@@ -55,15 +56,26 @@ else {
 }
 // Sort in ascending order - this is default
 $a = scandir($dir);
-// echo "<pre>";
-// print_r($a);
-// echo "</pre>";
+echo "<pre>";
+print_r($a);
+echo "</pre>";
 // echo ($a)[3];
 unset($a[0]);
 unset($a[1]);
 
-foreach ($a as $item )
-{
-  echo "<img src='afbeelding/".$item."'><br/>";
+if (is_array($a)) {
+    unset($a[0]);
+    unset($a[1]);
+    foreach ($a as $item ) {
+        echo "<img src='afbeelding/".$item."'><br/>";
+    }
+} else {
+    echo "Failed to read directory contents.";
 }
+
+
+// foreach ($a as $item )
+// {
+//   echo "<img src='afbeelding/".$item."'><br/>";
+// }
 // header('Location: ../frontend/browse.php');
