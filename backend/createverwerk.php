@@ -7,6 +7,7 @@ require 'config.php';
 // require_once 'login_check.php';
 
 $titel = $_POST['title'];
+
 $image = $_FILES['image'];
 $user = $_POST['user'];
 $group = $_POST['group'];
@@ -24,8 +25,6 @@ $timestamp = date('d:m:y:h:i:s');
 $filename = $naam;
 $filename .= $timestamp. "." . $ext;
 $dir = "afbeelding/";
-
-
 
 
 
@@ -73,9 +72,9 @@ if (is_array($a)) {
     echo "Failed to read directory contents.";
 }
 
-
 // foreach ($a as $item )
 // {
 //   echo "<img src='afbeelding/".$item."'><br/>";
 // }
 // header('Location: ../frontend/browse.php');
+
