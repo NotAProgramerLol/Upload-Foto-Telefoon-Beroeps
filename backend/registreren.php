@@ -20,11 +20,7 @@ require 'config.php';
                 <input type="password" name="inputpassword2">
                 
             </div>
-            <div>
-                <label for="inputlevel">level</label>
-                <input type="number" name="inputlevel">
-                
-            </div>
+
             <div>
                 <input name="submit" type="submit">
             </div>

@@ -1,7 +1,7 @@
 <?php 
 
 require_once '../backend/login_check.php';
-echo $_SESSION['id'];
+// echo $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,13 +10,13 @@ echo $_SESSION['id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Excursieblog</title>
+    <title>create</title>
 </head>
 <body>
     <img id="logo" src="images/logo.png" alt="">
     <div id="links">
     
-        <a href="index.php">Home</a>
+        <a href="../index.php">Home</a>
         <a href="create.php">Create blog</a>
         <a href="browse.php">Browse blogs</a>
 
@@ -27,14 +27,15 @@ echo $_SESSION['id'];
     <hr />
     <div id="body-container">
     <form action="../backend/createverwerk.php" method="post" enctype="multipart/form-data">
-            <label for="">Title: </label></br>
+            <label for="image">Title: </label></br>
             <input type="text" name="title" id="title"></br>
 
-            <label for="">Content: </label></br>
-            <input type="text" name="content" id="content"></br>
-
-            <label for="">Image: </label></br>
+            <label for="image">Image: </label></br>
             <input type="file" name="image" id="image"></br>
+
+            <input type="hidden" name="user" id="user" value="<?php $_SESSION['id']?>" ></br>
+
+            <input type="hidden" name="group" id="group" value="<?php $_SESSION['id']?>" ></br>
 
             <input type="submit">
         </form>

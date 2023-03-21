@@ -5,14 +5,13 @@ require 'config.php';
 $username = $_POST["inputusername"];
 $password = $_POST["inputpassword"];
 $password2 = $_POST["inputpassword2"];
-$level = $_POST["inputlevel"];
 
 if (isset($_POST['submit'])) {
     
 if ($password == $password2){
 
-$query = "INSERT INTO `usersblog`(`username`, `password`, `level`) ";
-$query .= "VALUES ('". $username ."','". $password ."',". $level .")";
+$query = "INSERT INTO `users`(`name`, `password`) ";
+$query .= "VALUES ('". $username ."','". $password ."')";
 
 $result = mysqli_query($mysqli, $query);
 echo $query;
