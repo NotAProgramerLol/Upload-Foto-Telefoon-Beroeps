@@ -7,6 +7,7 @@ require 'config.php';
 // require_once 'login_check.php';
 
 $titel = $_POST['title'];
+
 $image = $_FILES['image'];
 $user = $_POST['user'];
 $group = $_POST['group'];
@@ -28,10 +29,8 @@ $dir = "afbeelding/";
 
 
 
-
-
 $query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "','" . $user . "','" . $group . "')";
-
+echo $query;
 
 // echo $query;
 
@@ -73,9 +72,9 @@ if (is_array($a)) {
     echo "Failed to read directory contents.";
 }
 
-
 // foreach ($a as $item )
 // {
 //   echo "<img src='afbeelding/".$item."'><br/>";
 // }
 // header('Location: ../frontend/browse.php');
+
