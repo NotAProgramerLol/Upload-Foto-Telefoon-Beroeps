@@ -1,7 +1,7 @@
 <?php 
 
 require_once '../backend/login_check.php';
-echo $_SESSION['id'];
+// echo $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
