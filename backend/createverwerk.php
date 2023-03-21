@@ -7,9 +7,11 @@ require 'config.php';
 // require_once 'login_check.php';
 
 $titel = $_POST['title'];
-$content = $_POST['content'];
-$image = $_POST['image'];
 
+$image = $_FILES['image'];
+$user = $_POST['user'];
+$group = $_POST['group'];
+// echo $user;
 
 
 // photo upload > Filezilla
@@ -25,7 +27,10 @@ $filename .= $timestamp. "." . $ext;
 $dir = "afbeelding/";
 
 
-$query = "INSERT INTO `postsblog`(`titel`, `tekst`, `foto`) VALUES ('".$titel."','".$content."','".$filename."')";
+
+
+$query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "','" . $user . "','" . $group . "')";
+
 
 // echo $query;
 
@@ -50,15 +55,26 @@ else {
 }
 // Sort in ascending order - this is default
 $a = scandir($dir);
-// echo "<pre>";
-// print_r($a);
-// echo "</pre>";
+echo "<pre>";
+print_r($a);
+echo "</pre>";
 // echo ($a)[3];
 unset($a[0]);
 unset($a[1]);
 
-foreach ($a as $item )
-{
-  echo "<img src='afbeelding/".$item."'><br/>";
+if (is_array($a)) {
+    unset($a[0]);
+    unset($a[1]);
+    foreach ($a as $item ) {
+        echo "<img src='afbeelding/".$item."'><br/>";
+    }
+} else {
+    echo "Failed to read directory contents.";
 }
-header('Location: ../frontend/browse.php');
+
+// foreach ($a as $item )
+// {
+//   echo "<img src='afbeelding/".$item."'><br/>";
+// }
+// header('Location: ../frontend/browse.php');
+
