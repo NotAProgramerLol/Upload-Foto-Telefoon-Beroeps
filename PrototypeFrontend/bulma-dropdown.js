@@ -1,5 +1,5 @@
-let dropDownMenuBurger = document.getElementById("navbar-burger");
-let navbar = document.getElementById("navbar");
+const dropDownMenuBurger = document.getElementById("navbar-burger");
+const navbar = document.getElementById("navbar");
 
 dropDownMenuBurger.addEventListener("click", function dropdown() {
 	if (!dropDownMenuBurger.classList.contains("is-active")) {
