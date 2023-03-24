@@ -10,3 +10,4 @@ dropDownMenuBurger.addEventListener("click", function dropdown() {
 		navbar.classList.remove("is-active");
 	}
 });
+// wanna merge
