@@ -4,14 +4,14 @@ ini_set("display_errors", 1);
 
 
 require 'config.php';
-// require_once 'login_check.php';
+require_once 'login_check.php';
 
 $titel = $_POST['title'];
 
 $image = $_FILES['image'];
-$user = $_POST['user'];
+$user = $_SESSION['id'];
 $group = $_POST['group'];
-// echo $user;
+echo "<br>".$_SESSION['id']."<br>";
 
 
 // photo upload > Filezilla
@@ -29,7 +29,7 @@ $dir = "afbeelding/";
 
 
 
-$query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "','" . $user . "','" . $group . "')";
+$query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "'," . $user . "," . $group . ")";
 echo $query;
 
 // echo $query;
