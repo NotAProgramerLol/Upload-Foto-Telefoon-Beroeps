@@ -56,9 +56,9 @@
    unset($a[0]);
    unset($a[1]);
    
-   foreach ($a as $item2 )
+   foreach ($a as $item )
    {
-//      echo "<img src='../backend/afbeelding/".$item2."'><br/>";
+     echo "<img src='../backend/afbeelding/".$item."'><br/>";
    }
 
 ?>
@@ -71,9 +71,9 @@ while ($item = mysqli_fetch_assoc($result))
         ?><div class="overzicht">
             <?php
 
-        echo "<img class='img' src='../backend/afbeelding/".$item['foto']."'><br/>";
-        echo "<h2>" . $item['titel'] . "</h2><br>";
-        echo "<p>" . $item['tekst'] . "</p><br>";
+        echo "<img class='img' src='../backend/afbeelding/".$item['src']."'><br/>";
+        // echo "<h2>" . $item['titel'] . "</h2><br>";
+        // echo "<p>" . $item['tekst'] . "</p><br>";
         // echo "<img src='".$item['foto']."'><br>";
         
         ?>
