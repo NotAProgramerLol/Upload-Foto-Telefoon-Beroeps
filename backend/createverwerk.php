@@ -62,6 +62,7 @@ if (is_array($a)) {
     }
 } else {
     echo "Failed to read directory contents.";
+    exit;
 }
 
 // header('Location: ../frontend/browse.php');
