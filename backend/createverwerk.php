@@ -12,6 +12,9 @@ $user = $_SESSION['id'];
 $group = $_POST['group'];
 echo "<br>".$_SESSION['id']."<br>";
 
+
+
+
 // photo upload > Filezilla
 $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
 $directory = "afbeelding";
@@ -21,6 +24,9 @@ $timestamp = date('d:m:y:h:i:s');
 $filename = $naam;
 $filename .= $timestamp. "." . $ext;
 $dir = "afbeelding/";
+
+
+
 
 $query = "INSERT INTO `items`(`name`, `src`, `user`, `group`) VALUES ('" . $titel . "','" . $filename . "'," . $user . "," . $group . ")";
 echo $query;
@@ -62,6 +68,7 @@ if (is_array($a)) {
     }
 } else {
     echo "Failed to read directory contents.";
+    exit;
 }
 
 // header('Location: ../frontend/browse.php');
