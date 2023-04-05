@@ -10,35 +10,18 @@ $password = $_POST["inputpassword"];
 if (strlen($username)>0 && strlen($password)>0){
     // $password=sha1($password);
 
-    $query = "SELECT * FROM `users` ";
-    $query .= "WHERE username='$username' AND password='$password'";
-
-    $querynaam = "SELECT 'name' FROM `users` ";
-    $querynaam .= "WHERE name='$username' AND password='$password'";
-
-    $queryww = "SELECT 'password' FROM `users` ";
-    $queryww .= "WHERE name='$username' AND password='$password'";
-
-    $queryid = "SELECT 'id' FROM `users` ";
-    $queryid .= "WHERE name='$username' AND password='$password'";
-
-
+    $query = "SELECT * FROM users ";
+    $query .= "WHERE name='$username' AND password='$password'";
+    echo $query;
     $result1 = mysqli_query($mysqli, $query);
 
-    $result2 = mysqli_query($mysqli, $querynaam);
 
-    $result3 = mysqli_query($mysqli, $queryww);
-
-    $result4 = mysqli_query($mysqli, $queryid);
-
-    
-
-    if (mysqli_num_rows($result2) == 1){
+    if (mysqli_num_rows($result1) == 1){
         session_start();
-        
-        $_SESSION['id'] = $result4;
+        $row = mysqli_fetch_assoc($result1);
+        $_SESSION['id'] = $row['ID'];
         header("Location: ../index.php");
-        // echo "<p>Ingelogd ". $username ."!</p>";
+        // echo "<p>Ingelogd ". $row['ID'] ."!</p>";
 
     }
     else {
