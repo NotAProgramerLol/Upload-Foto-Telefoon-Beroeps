@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Landing</title>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<!-- + navbar -->
+		<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="index.html">
+					<img src="logo.svg" alt="logo" width="28" />
+				</a>
+				<a
+					role="button"
+					class="navbar-burger"
+					id="navbar-burger"
+					aria-label="menu"
+					aria-expanded="false"
+					data-target="navbar"
+				>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
+			</div>
+			<!-- TODO: hamburg links goed zetten -->
+			<!-- ?: wtf moet eig in de hamburg komen? -->
+			<div id="navbar" class="navbar-menu">
+				<div class="navbar-start">
+					<a href="projects.html" class="navbar-item"> Projects </a>
+				</div>
+			</div>
+		</nav>
+		<!-- ^ navbar -->
+
+		<!-- + links -->
+		<div class="tabs is-right">
+			<ul>
+				<li><a>Toevoeg</a></li>
+				<li><a>Uitlog</a></li>
+				<li><a>Overzicht</a></li>
+			</ul>
+		</div>
+		<!-- ^ links -->
+
+		<!-- + login & registeer -->
+		<div class="p-3">
+			<!-- + login -->
+			<div class="p-3">
+				<div class="container title has-text-centered">
+					Login <br />
+					Menu
+				</div>
+				<label class="label">Gebruikersnaam:</label>
+				<div class="field is-expanded">
+					<p class="control has-icons-left has-icons-right">
+						<input class="input" type="text" placeholder="Gebruikersnaam" />
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+					</p>
+				</div>
+				<label class="label">Password:</label>
+				<div class="field">
+					<p class="control has-icons-left">
+						<input class="input" type="password" placeholder="Password" />
+						<span class="icon is-small is-left">
+							<i class="fas fa-lock"></i>
+						</span>
+					</p>
+				</div>
+				<div class="field is-grouped is-grouped-centered">
+					<p class="control">
+						<button class="button is-success">Login</button>
+					</p>
+				</div>
+			</div>
+			<!-- ^ login -->
+
+			<!-- + registeer -->
+			<div class="p-3">
+				<div class="container title has-text-centered">
+					Registeer <br />
+					Menu
+				</div>
+				<label class="label">Gebruikersnaam:</label>
+				<div class="field">
+					<p class="control has-icons-left has-icons-right">
+						<input class="input" type="text" placeholder="Gebruikersnaam" />
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+					</p>
+				</div>
+				<label class="label">Password:</label>
+				<div class="field">
+					<p class="control has-icons-left">
+						<input class="input" type="password" placeholder="Password" />
+						<span class="icon is-small is-left">
+							<i class="fas fa-lock"></i>
+						</span>
+					</p>
+				</div>
+				<label class="label">Password 2e keer:</label>
+				<div class="field">
+					<p class="control has-icons-left">
+						<input class="input" type="password" placeholder="Password" />
+						<span class="icon is-small is-left">
+							<i class="fas fa-lock"></i>
+						</span>
+					</p>
+				</div>
+				<div class="field is-grouped is-grouped-centered">
+					<p class="control">
+						<button class="button is-success">Registeer</button>
+					</p>
+				</div>
+			</div>
+			<!-- ^ registeer -->
+		</div>
+		<!-- + login & registeer -->
+
+		<!-- + scripts -->
+		<script src="./bulma-dropdown.js" defer></script>
+		<!-- ^scripts -->
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Landing</title>
+
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<!-- + navbar -->
+		<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="index.html">
+					<img src="logo.svg" alt="logo" width="28" />
+				</a>
+				<a
+					role="button"
+					class="navbar-burger"
+					id="navbar-burger"
+					aria-label="menu"
+					aria-expanded="false"
+					data-target="navbar"
+				>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
+			</div>
+			<!-- TODO: hamburg links goed zetten -->
+			<!-- ?: wtf moet eig in de hamburg komen? -->
+			<div id="navbar" class="navbar-menu">
+				<div class="navbar-start">
+					<a href="projects.html" class="navbar-item"> Projects </a>
+				</div>
+			</div>
+		</nav>
+		<!-- ^ navbar -->
+
+		<!-- + links -->
+		<div class="tabs is-right">
+			<ul>
+				<li><a>Toevoeg</a></li>
+				<li><a>Uitlog</a></li>
+				<li><a>Overzicht</a></li>
+			</ul>
+		</div>
+		<!-- ^ links -->
+		<div class="container title has-text-centered">Upload foto</div>
+		<!-- + input -->
+		<div class="columns box m-3 p-1">
+			<div id="file-input" class="column file has-name is-fullwidth">
+				<label class="file-label">
+					<input id="fileInput" class="file-input" type="file" name="resume" />
+					<span class="file-cta">
+						<span class="file-icon">
+							<i class="fas fa-upload"></i>
+						</span>
+						<span class="file-label"> Choose a file… </span>
+					</span>
+					<span class="file-name"> No file selected. </span>
+				</label>
+			</div>
+			<div class="column field is-grouped is-grouped-centered">
+				<p class="control">
+					<a class="button is-primary"> Submit </a>
+				</p>
+				<p id="clear" class="control">
+					<a class="button is-danger"> Clear </a>
+				</p>
+			</div>
+		</div>
+
+		<!-- ^ input -->
+		<!-- + clear notification -->
+        <div id="clearNoti" class="notification is-danger m-6 animate__animated animate__fadeOutRight is-hidden">
+            File input is cleared.
+          </div>
+		<!-- + clear notification -->
+
+		<!-- + scripts -->
+		<script src="./bulma-dropdown.js" defer></script>
+		<script src="./bulma-fileInput.js"></script>
+		<!-- ^scripts -->
+	</body>
+</html>
