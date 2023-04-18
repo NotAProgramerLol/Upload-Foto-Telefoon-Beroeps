@@ -19,7 +19,7 @@ $result = mysqli_query($mysqli, $query);
 
 
 if ($result) {
-    header("Location: login.php.php");
+    header("Location: ../index.php");
 }
 else {
     echo "Er is een fout opgetreden";
