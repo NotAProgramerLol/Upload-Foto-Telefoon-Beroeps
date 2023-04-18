@@ -1,3 +1,8 @@
+<?php
+
+include_once 'backend/login_check.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
