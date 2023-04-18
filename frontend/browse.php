@@ -77,7 +77,7 @@ while ($item = mysqli_fetch_assoc($result))
         // echo $itemuser;
         ?><div class="overzicht">
             <?php
-
+        echo "<a href='../backend/delete.php?id=" . $item['ID'] . "'>X</a>";
         echo "<img class='img' src='../backend/afbeelding/".$item['src']."'><br/>";
         echo "<h2>" . $item['name'] . "</h2><br>";
 
