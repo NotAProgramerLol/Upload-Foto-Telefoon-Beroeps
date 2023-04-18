@@ -59,6 +59,7 @@ if (is_array($a)) {
     unset($a[1]);
     foreach ($a as $item ) {
         echo "<img src='afbeelding/".$item."'><br/>";
+        header('Location: ../frontend/browse.php');
     }
 } else {
     echo "Failed to read directory contents.";

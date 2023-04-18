@@ -4,7 +4,7 @@ ini_set("display_errors", 1);
 
 session_start();
 
-echo "id = " . $_SESSION['id'] . "<br>";
+// echo "id = " . $_SESSION['id'] . "<br>";
 
 if (isset($_SESSION['id'])){
     if ($_SESSION['id'] == ''){
