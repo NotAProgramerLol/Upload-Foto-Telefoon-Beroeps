@@ -178,3 +178,12 @@ div[class^="nav1"] {
     width: 100%;
     margin: 120px 0px 0px 0px;
 }
+
+.imagesbrowse{
+    position: relative;
+    width: 48%;
+    /* margin-left: 1%;
+    margin-top: 10px; */
+    margin: 10px 0 0 1%;
+
+}
