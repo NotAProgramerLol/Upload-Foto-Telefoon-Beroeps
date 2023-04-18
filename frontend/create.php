@@ -48,10 +48,10 @@ if ($result->num_rows > 0) {
     <div id="body-container">
     <form action="../backend/createverwerk.php" method="post" enctype="multipart/form-data">
             <label for="title">Title: </label></br>
-            <input type="text" name="title" id="title"></br>
+            <input type="text" name="title" id="title" maxlength="15"></br>
 
             <label for="image">Image: </label></br>
-            <input type="file" name="image" id="image"></br>
+            <input type="file" name="image" id="image" required></br>
 
             <input type="hidden" name="user" id="user" value="<?php $_SESSION['id'] ?>" ></br>
 
