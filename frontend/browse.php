@@ -68,13 +68,25 @@
 <?php
 while ($item = mysqli_fetch_assoc($result))
     {
+        $userid = $item['user'];
+        $queryuser = "SELECT `name` FROM `users` WHERE `ID` = $userid";
+        
+        $resultuser = mysqli_query($mysqli, $queryuser);
+        
+        $itemuser = mysqli_fetch_assoc($resultuser);
+        // echo $itemuser;
         ?><div class="overzicht">
             <?php
-
+        echo "<a href='../backend/delete.php?id=" . $item['ID'] . "'>X</a>";
         echo "<img class='img' src='../backend/afbeelding/".$item['src']."'><br/>";
         echo "<h2>" . $item['name'] . "</h2><br>";
-        echo "<p>" . $item['user'] . "</p><br>";
-        echo "<p>" . $item['group'] . "</p><br>";
+
+
+        echo "<p>" . $itemuser['name'] . "</p><br>";
+
+
+        // echo "<p>" . $item['group'] . "</p><br>";
+
         // echo "<img src='".$item['foto']."'><br>";
         
         ?>
@@ -87,12 +99,7 @@ while ($item = mysqli_fetch_assoc($result))
 
 
             <?php
-                // echo "<td><a href='detail.php?id=" . $item['id'] . "'>detail</a></td>";
-                // echo "<td><a href='deletevraag.php?id=" . $item['id'] . "'>X</a></td>";
-                // echo "<td><a href='editfront.php?id=" . $item['id'] . "'>edit</a></td>";
-            
-            
-            // echo "<br><a href='detail.php?id=" . $item['id'] . "'>detail</a>";
+                
         
         
         
