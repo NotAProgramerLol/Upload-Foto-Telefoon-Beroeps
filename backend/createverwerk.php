@@ -10,6 +10,7 @@ $titel = $_POST['title'];
 $image = $_FILES['image'];
 $user = $_SESSION['id'];
 $group = $_POST['group'];
+echo $group;
 echo "<br>".$_SESSION['id']."<br>";
 
 // photo upload > Filezilla

@@ -8,7 +8,7 @@ require_once '../backend/config.php';
 
 $id = $_GET["id"];
 
-$query = "DELETE FROM `items` WHERE `ID` = $id";
+$query = "DELETE FROM `groups` WHERE `ID` = $id";
         
 $result = mysqli_query($mysqli, $query);
         
