@@ -17,5 +17,5 @@ if (isset($_SESSION['id'])){
 
 else {
     echo "geen sessie";
-    header('Location: ../backend/login.php');
+    header('Location: backend/login.php');
 }
