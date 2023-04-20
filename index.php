@@ -1,6 +1,7 @@
 <?php
 
-require '../backend/config.php';
+require_once 'backend/login_check.php';
+require 'backend/config.php';
 // require '../backend/createverwerk.php';
 
 ini_set('display_errors', 1);
