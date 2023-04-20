@@ -91,7 +91,7 @@ if (!$result) {
 
 		<?php
 		if (mysqli_num_rows($result) > 0) {
-			$dir = "../backend/afbeelding";
+			$dir = "backend/afbeelding";
 
 			$a = scandir($dir);
 
@@ -99,7 +99,7 @@ if (!$result) {
 			unset($a[1]);
 
 			foreach ($a as $item) {
-				//  echo "<img class='imagesbrowse' src='../backend/afbeelding/".$item."'><br/>";
+				//  echo "<img class='imagesbrowse' src='backend/afbeelding/".$item."'><br/>";
 			}
 
 			while ($item = mysqli_fetch_assoc($result)) {
@@ -116,13 +116,13 @@ if (!$result) {
 
 				<div class="card m-5">
 					<header class="card-header">
-					<a href='../backend/delete.php?id=<?php echo $item['ID']?>'><button class="delete is-large m-3"></button></a>
+					<a href='backend/delete.php?id=<?php echo $item['ID']?>'><button class="delete is-large m-3"></button></a>
 						<p class="card-header-title"><?php echo $item['name']; ?></p>
 					</header>
 
 					<div class="card-image">
 						<figure class="image is-4by3">
-							<img src='../backend/afbeelding/<?php echo $item['src'] ?>' alt="Placeholder image" />
+							<img src='backend/afbeelding/<?php echo $item['src'] ?>' alt="Placeholder image" />
 						</figure>
 					</div>
 
@@ -135,7 +135,7 @@ if (!$result) {
 
 		<?php
 
-				echo "<a href='../backend/delete.php?id={$item['ID']}'>X</a>";
+				// echo "<a href='backend/delete.php?id={$item['ID']}'>X</a>";
 				// echo "<img class='img' src='../backend/afbeelding/{$item['src']}'><br/>";
 				// echo "<h2>{$item['name']}</h2><br>";
 
