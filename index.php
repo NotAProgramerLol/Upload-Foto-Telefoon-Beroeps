@@ -45,30 +45,20 @@ if (!$result) {
 				<span aria-hidden="true"></span>
 			</a>
 		</div>
-		<!-- TODO: hamburg links goed zetten -->
-		<!-- ?: wtf moet eig in de hamburg komen? -->
-		<div id="navbar" class="navbar-menu">
-			<div class="navbar-start">
-				<a class="navbar-item" href="index.php">Browse blogs</a>
-				<a class="navbar-item" href="frontend/create.php">Create blog</a>
-				<a class="navbar-item" href="backend/login.php">Login</a>
-				<a class="navbar-item" href="backend/uitlog.php">Uitlog</a>
-				<a class="navbar-item" href="backend/registreren.php">Register</a>
-			</div>
-		</div>
+
 	</nav>
 	<!-- ^ navbar -->
 
 	<!-- + links -->
 	<div class="tabs is-right">
 		<ul>
-			<li><a>Toevoeg</a></li>
-			<li><a>Uitlog</a></li>
-			<li><a>Overzicht</a></li>
+			<li><a href="frontend/create.php">Toevoeg</a></li>
+			<li><a href="frontend/group.php">Groep</a></li>
+			<li><a href="backend/uitlog.php">Uitlog</a></li>
 		</ul>
 	</div>
 	<!-- ^ links -->
-	<!-- + titel ?? -->
+	<!-- + titel -->
 	<div class="field is-grouped is-grouped-centered">
 		<div class="control">
 			<div>
@@ -86,7 +76,7 @@ if (!$result) {
 		</div>
 	</div>
 
-	<!-- ^ titel ?? -->
+	<!-- ^ titel -->
 	<div id="body-container">
 
 		<?php
