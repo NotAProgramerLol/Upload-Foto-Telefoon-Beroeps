@@ -10,7 +10,11 @@ error_reporting(E_ALL);
 
 function getItems($mysqli)
 {
-	$query = "SELECT * FROM items where user = " . $_SESSION['id'] . "";
+	if (!isset($_POST['option'])) {
+		$_POST['option'] = 1;
+	}
+	$query = "SELECT * FROM items WHERE `user` = " . $_SESSION['id'] . " AND `group` = " . $_POST['option'] . "";
+
 
 	$result = mysqli_query($mysqli, $query);
 
@@ -51,9 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $groups = [];
 
 // Fetch the results and store them in the $groups array
-if (getGroups($mysqli)->num_rows >= 1) {
-	while ($row = getGroups($mysqli)->fetch_assoc()) {
-		$groups[] = $row;
+$group_results = getGroups($mysqli);
+if ($group_results->num_rows >= 1) {
+	$groups = $group_results->fetch_all(MYSQLI_ASSOC);
+	foreach ($groups as $group) {
+		// do something with $group
 	}
 }
 ?>
@@ -65,6 +71,7 @@ if (getGroups($mysqli)->num_rows >= 1) {
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<title>Landing</title>
 	<link rel="stylesheet" href="./style/index.css" />
 </head>
@@ -100,7 +107,7 @@ if (getGroups($mysqli)->num_rows >= 1) {
 	<div class="field is-grouped is-grouped-centered">
 		<div class="control">
 			<div>
-				<form method="post" class="select is-large">
+				<form method="post" class="select is-large" onsubmit="onFormSubmit(event);">
 					<select name="option" onchange="this.form.submit()">
 						<?php foreach ($groups as $group) { ?>
 							<option value="<?php echo $group['ID']; ?>" <?php if ($selected_group == "option3") {
@@ -187,6 +194,11 @@ if (getGroups($mysqli)->num_rows >= 1) {
 	</div>
 	<!-- + scripts -->
 	<script src="./scripts/bulma-dropdown.js" defer></script>
+	<script>
+		function onFormSubmit(event) {
+			event.preventDefault();
+		}
+	</script>
 	<!-- ^scripts -->
 </body>
 
