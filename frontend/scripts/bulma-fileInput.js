@@ -1,17 +1,17 @@
-const fileInput = document.querySelector("#file-input input[type=file]");
+const fileInput = document.querySelector("#image input[type=file]");
 const clearButton = document.getElementById("clear");
 const notification = document.getElementById("clearNoti");
 
 fileInput.onchange = () => {
 	if (fileInput.files.length > 0) {
-		const fileName = document.querySelector("#file-input .file-name");
+		const fileName = document.querySelector("#image .file-name");
 		fileName.textContent = fileInput.files[0].name;
 	}
 };
 
 clearButton.onclick = () => {
 	fileInput.value = "";
-	document.querySelector("#file-input .file-name").textContent = "No file selected.";
+	document.querySelector("#image .file-name").textContent = "No file selected.";
 
 /**********************************************************
  *              TODO: MAKE THIS IF LOOP AUTOMATIC         *

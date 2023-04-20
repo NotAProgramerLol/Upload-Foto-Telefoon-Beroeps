@@ -38,15 +38,6 @@
 		</nav>
 		<!-- ^ navbar -->
 
-		<!-- + links -->
-		<div class="tabs is-right">
-			<ul>
-				<li><a>Toevoeg</a></li>
-				<li><a>Uitlog</a></li>
-				<li><a>Overzicht</a></li>
-			</ul>
-		</div>
-		<!-- ^ links -->
 		<div class="container title has-text-centered">Upload foto</div>
 		<!-- + input -->
 		<div class="box m-3 p-2">
@@ -69,9 +60,19 @@
 						<span class="file-name"> No file selected. </span>
 					</label>
 				</div>
+				<div class="select">
+					<select>
+						<option disabled selected>Select Group</option>
+						<option>Group 1</option>
+						<option>Group 2</option>
+						<option>Group 3</option>
+						<option>Group 4</option>
+						<option>Group 5</option>
+					</select>
+				</div>
 				<div class="column field is-grouped is-grouped-centered">
 					<p class="control">
-						<a class="button is-primary"> Submit </a>
+						<input type="submit" class="button is-primary">
 					</p>
 					<p id="clear" class="control">
 						<a class="button is-danger"> Clear </a>
@@ -82,7 +83,10 @@
 
 		<!-- ^ input -->
 		<!-- + clear notification -->
-		<div id="clearNoti" class="notification is-danger m-6 animate__animated animate__fadeOutRight is-hidden">
+		<div
+			id="clearNoti"
+			class="notification is-danger m-6 animate__animated animate__fadeOutRight is-hidden"
+		>
 			File input is cleared.
 		</div>
 		<!-- + clear notification -->

@@ -48,74 +48,70 @@ if ($result->num_rows > 0) {
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <!-- TODO: hamburg links goed zetten -->
-        <!-- ?: wtf moet eig in de hamburg komen? -->
+
         <div id="navbar" class="navbar-menu">
             <div class="navbar-start">
                 <a href="projects.html" class="navbar-item"> Projects </a>
+                <a href="frontend/create.php" class="navbar-item">Toevoeg</a>
+                <a href="frontend/group.php" class="navbar-item">Groep</a>
+                <a href="backend/uitlog.php" class="navbar-item">Uitlog</a>
             </div>
         </div>
     </nav>
     <!-- ^ navbar -->
 
-    <!-- + links -->
-    <div class="tabs is-right">
-        <ul>
-            <li><a>Toevoeg</a></li>
-            <li><a>Uitlog</a></li>
-            <li><a>Overzicht</a></li>
-        </ul>
-    </div>
-    <!-- ^ links -->
-
     <!-- + input -->
-    <div class="columns box m-3 p-1">
-        <div id="file-input" class="column file has-name is-fullwidth">
-            <label class="file-label">
-                <input id="fileInput" class="file-input" type="file" name="resume" />
-                <span class="file-cta">
-                    <span class="file-icon">
-                        <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label"> Choose a file… </span>
-                </span>
-                <span class="file-name"> No file selected. </span>
-            </label>
-        </div>
-        <div class="column field is-grouped is-grouped-centered">
-            <p class="control">
-                <a class="button is-primary"> <input type="submit" /> </a>
-            </p>
-            <p id="clear" class="control">
-                <a class="button is-danger"> Clear </a>
-            </p>
-        </div>
-    </div>
+    <form action="../backend/createverwerk.php" method="post" enctype="multipart/form-data">
 
+        <div class="box m-3 p-2">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                    <input class="input" type="text" name="title" id="title" maxlength="15" placeholder="Title" />
+                </div>
+            </div>
+
+            <div class="columns">
+                <div id="file-input" class="column file has-name is-fullwidth">
+                    <label class="file-label">
+
+                        <input type="file" name="image" id="image" class="file-input" required />
+
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label"> Choose a file… </span>
+                        </span>
+                        <span class="file-name"> No file selected. </span>
+                    </label>
+                </div>
+
+                <div class="select">
+                    <select>
+                        <option disabled selected>Select Group</option>
+                        <?php foreach ($groups as $group) { ?>
+                            <option value="<?php echo $group['ID']; ?>"><?php echo $group['name']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <input type="hidden" name="user" id="user" value="<?php $_SESSION['id'] ?>" />
+
+                <div class="column field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <input type="submit" class="button is-primary" />
+                    </p>
+
+                    <p id="clear" class="control">
+                        <a class="button is-danger"> Clear </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- ^ input -->
 
-
-
-    <form action="../backend/createverwerk.php" method="post" enctype="multipart/form-data">
-        <label for="title">Title: </label></br>
-        <input type="text" name="title" id="title" maxlength="15"></br>
-
-        <label for="image">Image: </label></br>
-        <input type="file" name="image" id="image" required></br>
-
-        <input type="hidden" name="user" id="user" value="<?php $_SESSION['id'] ?>"></br>
-
-        <label for="group">Group: </label></br>
-        <select name="group" id="group">
-            <?php foreach ($groups as $group) { ?>
-                <option value="<?php echo $group['ID']; ?>"><?php echo $group['name']; ?></option>
-            <?php } ?>
-        </select></br>
-
-        <input type="submit" />
-    </form>
-
-    
     <!-- + scripts -->
     <script src="./bulma-dropdown.js" defer></script>
     <script src="./bulma-fileInput.js"></script>
@@ -123,3 +119,5 @@ if ($result->num_rows > 0) {
 </body>
 
 </html>
+
+<!-- oke wtf wie hier zit break tags op deze manier te maken '</br>' -->
