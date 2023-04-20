@@ -8,17 +8,54 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$query = "SELECT * FROM items";
+function getItems($mysqli)
+{
+	$query = "SELECT * FROM items where user = " . $_SESSION['id'] . "";
 
-$result = mysqli_query($mysqli, $query);
+	$result = mysqli_query($mysqli, $query);
 
-if (!$result) {
-	echo "<p>FOUT!</p>";
-	echo "<p>" . $query . "</p>";
-	echo "<p>" . mysqli_error($mysqli) . "</p>";
-	exit;
+	if (!$result) {
+		echo "<p>FOUT!</p>";
+		echo "<p>" . $query . "</p>";
+		echo "<p>" . mysqli_error($mysqli) . "</p>";
+		exit;
+	}
+
+	return $result;
 }
 
+function getGroups($mysqli)
+{
+	$query = "SELECT * FROM groups where user = " . $_SESSION['id'] . "";
+
+	$result = mysqli_query($mysqli, $query);
+
+	if (!$result) {
+		echo "<p>FOUT!</p>";
+		echo "<p>" . $query . "</p>";
+		echo "<p>" . mysqli_error($mysqli) . "</p>";
+		exit;
+	}
+
+	return $result;
+}
+
+$selected_group = "";
+
+// Check if the form has been submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	// Get the selected option from the form
+	$selected_group = $_POST["option"];
+}
+
+$groups = [];
+
+// Fetch the results and store them in the $groups array
+if (getGroups($mysqli)->num_rows >= 1) {
+	while ($row = getGroups($mysqli)->fetch_assoc()) {
+		$groups[] = $row;
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +76,8 @@ if (!$result) {
 			<a class="navbar-item" href="index.php">
 				<img src="logo.svg" alt="logo" width="28" />
 			</a>
-			<a role="button" class="navbar-burger" id="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+			<a role="button" class="navbar-burger" id="navbar-burger" aria-label="menu" aria-expanded="false"
+				data-target="navbar">
 				<span aria-hidden="true"></span>
 				<span aria-hidden="true"></span>
 				<span aria-hidden="true"></span>
@@ -62,25 +100,25 @@ if (!$result) {
 	<div class="field is-grouped is-grouped-centered">
 		<div class="control">
 			<div>
-				<div class="select is-large">
-					<select>
-						<option>Select group</option>
-						<option>group 1</option>
-						<option>group 2</option>
-						<option>group 3</option>
-						<option>group 4</option>
-						<option>group 5</option>
+				<form method="post" class="select is-large">
+					<select name="option" onchange="this.form.submit()">
+						<?php foreach ($groups as $group) { ?>
+							<option value="<?php echo $group['ID']; ?>" <?php if ($selected_group == "option3") {
+								   echo "selected";
+							   } ?>><?php echo $group['name']; ?></option>
+						<?php } ?></br>
 					</select>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
+
 
 	<!-- ^ titel -->
 	<div id="body-container">
 
 		<?php
-		if (mysqli_num_rows($result) > 0) {
+		if (mysqli_num_rows(getItems($mysqli)) > 0) {
 			$dir = "afbeelding";
 
 			$a = scandir($dir);
@@ -92,7 +130,7 @@ if (!$result) {
 				//  echo "<img class='imagesbrowse' src='backend/afbeelding/".$item."'><br/>";
 			}
 
-			while ($item = mysqli_fetch_assoc($result)) {
+			while ($item = mysqli_fetch_assoc(getItems($mysqli))) {
 				$userid = $item['user'];
 				$queryuser = "SELECT `name` FROM `users` WHERE `ID` = $userid";
 
@@ -100,14 +138,17 @@ if (!$result) {
 
 				$itemuser = mysqli_fetch_assoc($resultuser);
 				// echo $itemuser;
-
+		
 				// + cards
-		?>
+				?>
 
 				<div class="card m-5">
 					<header class="card-header">
-					<a href='backend/delete.php?id=<?php echo $item['ID']?>'><button class="delete is-large m-3"></button></a>
-						<p class="card-header-title"><?php echo $item['name']; ?></p>
+						<a href='backend/delete.php?id=<?php echo $item['ID'] ?>'><button
+								class="delete is-large m-3"></button></a>
+						<p class="card-header-title">
+							<?php echo $item['name']; ?>
+						</p>
 					</header>
 
 					<div class="card-image">
@@ -123,20 +164,20 @@ if (!$result) {
 					</div>
 				</div>
 
-		<?php
+				<?php
 
 				// echo "<a href='backend/delete.php?id={$item['ID']}'>X</a>";
 				// echo "<img class='img' src='../backend/afbeelding/{$item['src']}'><br/>";
 				// echo "<h2>{$item['name']}</h2><br>";
-
+		
 				// echo "<p>{$itemuser['name']}</p><br>";
-
+		
 				// ^ cards
-
+		
 				// echo "<p>" . $item['group'] . "</p><br>";
-
+		
 				// echo "<img src='".$item['foto']."'><br>";
-
+		
 
 			}
 		} else {
