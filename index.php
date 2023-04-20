@@ -91,7 +91,7 @@ if (!$result) {
 
 		<?php
 		if (mysqli_num_rows($result) > 0) {
-			$dir = "backend/afbeelding";
+			$dir = "afbeelding";
 
 			$a = scandir($dir);
 
