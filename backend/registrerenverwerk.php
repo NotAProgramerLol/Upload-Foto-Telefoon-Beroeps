@@ -16,7 +16,7 @@ $query .= "VALUES ('". $username ."','". $password ."')";
 $result = mysqli_query($mysqli, $query);
 echo $query;
 if ($result) {
-    header("Location: login.php.php");
+    header("Location: login.php");
 }
 else {
     echo "Er is een fout opgetreden";

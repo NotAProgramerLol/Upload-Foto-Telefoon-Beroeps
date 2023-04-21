@@ -9,7 +9,7 @@ session_start();
 if (isset($_SESSION['id'])){
     if ($_SESSION['id'] == ''){
         echo "sessie is leeg";
-        header('Location: login.php');
+        header('Location: https://87957.stu.sd-lab.nl/Upload-Foto-Telefoon-Beroeps/backend/login.php');
     }
     
     
@@ -17,5 +17,5 @@ if (isset($_SESSION['id'])){
 
 else {
     echo "geen sessie";
-    header('Location: backend/login.php');
+    header('Location: https://87957.stu.sd-lab.nl/Upload-Foto-Telefoon-Beroeps/backend/login.php');
 }

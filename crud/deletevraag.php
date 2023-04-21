@@ -20,4 +20,3 @@ if (mysqli_num_rows($result) == 1) {
 
 <link rel="stylesheet" href="style/style.css">
 
-<?php
